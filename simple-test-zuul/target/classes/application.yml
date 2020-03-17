@@ -1,0 +1,24 @@
+server:
+  port: 8088
+spring:
+  application:
+    name: zuul-getway
+zuul:
+  routes:
+    simple-item:
+      path: /item-server/** 
+      service-id: simple-item
+    simple-order:
+      path: /order-server/** #拦截路径
+      service-id: simple-order #请求的服务名
+      #url: http://127.0.0.1:8080 # 路径
+eureka:
+  client:
+    register-with-eureka: true #是否将自己注册到服务中
+    fetch-registry: true #是否从eureka中返回注册信息
+    service-url:
+      defaultZone:  http://username:password@127.0.0.1:8086/eureka/ #defaultZone不能用-连接只能用驼峰，如果有多个用逗号隔开
+  instance:
+    prefer-ip-address: true #将本机ip注册到中心
+    ip-address: 127.0.0.1 #别人调用时使用的ip
+    instance-id: simple-zuul #实例名

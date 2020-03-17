@@ -1,0 +1,22 @@
+server:
+  port: 8081
+spring:
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+  application:
+    name: simple-item
+
+eureka:
+  client:
+    register-with-eureka: true #是否将自己注册到服务中
+    fetch-registry: true #是否从eureka中返回注册信息
+    service-url:
+      defaultZone:  http://username:password@127.0.0.1:8086/eureka/
+      #defaultZone不能用-连接只能用驼峰，如果有多个用逗号隔开，集群时写一个就可以了，因为他们相互注册了
+  instance:
+    prefer-ip-address: true #将本机ip注册到中心
+    ip-address: 127.0.0.1 #别人调用时使用的ip
+    instance-id: simple-item #实例名

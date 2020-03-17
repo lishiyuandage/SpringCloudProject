@@ -1,0 +1,17 @@
+server:
+  port: 8086
+  
+eureka:
+  client:
+    register-with-eureka: false #是否将自己注册到服务中
+    fetch-registry: false #是否从eureka中返回注册信息
+  #  service-url:
+   #   defaultZone:  http://username:password@127.0.0.1:8087/eureka/ #eureka集群
+
+spring:
+  application:
+    name: eureka-server #服务名
+  security:
+    user:
+      name: username
+      password: password

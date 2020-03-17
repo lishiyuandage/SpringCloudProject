@@ -1,0 +1,14 @@
+eureka:
+  client:
+    service-url:
+      defaultZone:  http://username:password@127.0.0.1:8086/eureka/
+      
+spring:
+  cloud:
+    config:
+      name: serverconfig
+      profile: dev
+      label: master
+      discovery:
+        enabled: true
+        service-id: config-server
